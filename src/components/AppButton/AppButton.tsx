@@ -15,13 +15,16 @@ interface AppButtonProps {
   styleText?: StyleProp<TextStyle>;
   text: string;
   onPress: () => void;
+  disabled?: boolean;
 }
 
 export const AppButton = (props: AppButtonProps) => {
-  const {style, styleText, text, onPress} = props;
+  const {style, styleText, text, onPress, disabled} = props;
 
   return (
-    <Pressable style={[styles.btn, style]} onPress={onPress}>
+    <Pressable
+      style={disabled ? styles.disabled : [styles.btn, style]}
+      onPress={onPress}>
       <AppText style={[styles.btnText, styleText]}>{text}</AppText>
     </Pressable>
   );

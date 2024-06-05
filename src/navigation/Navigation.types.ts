@@ -1,12 +1,13 @@
 export enum ScreenRoutes {
   MAIN = 'MAIN',
+  START = 'START',
 }
 
 export const screenOptions = {
   headerShown: false,
-//   contentStyle: {backgroundColor: '#007580'},
 };
 
 export interface RootStackParamList {
   MAIN: undefined;
+  Start: undefined;
 }

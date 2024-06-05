@@ -9,7 +9,7 @@ import {
   screenOptions,
 } from './Navigation.types';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Main} from 'screens';
+import {Main, Start} from 'screens';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 export const navigationRef = createNavigationContainerRef();
@@ -21,6 +21,11 @@ export const RootNavigation = () => {
         <Stack.Screen
           name={ScreenRoutes.MAIN}
           component={Main}
+          options={{animation: 'fade'}}
+        />
+        <Stack.Screen
+          name={ScreenRoutes.START}
+          component={Start}
           options={{animation: 'fade'}}
         />
       </Stack.Navigator>

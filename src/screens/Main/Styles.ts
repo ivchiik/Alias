@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 30,
   },
 
   img: {
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
   },
 
   btnWrapper: {
-    marginTop: 50,
+    marginTop: 60,
     gap: 20,
   },
 });
