@@ -25,7 +25,10 @@ export const AppButton = (props: AppButtonProps) => {
     <Pressable
       style={disabled ? styles.disabled : [styles.btn, style]}
       onPress={onPress}>
-      <AppText style={[styles.btnText, styleText]}>{text}</AppText>
+      <AppText
+        style={disabled ? styles.disabledText : [styles.btnText, styleText]}>
+        {text}
+      </AppText>
     </Pressable>
   );
 };

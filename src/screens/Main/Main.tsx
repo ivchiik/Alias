@@ -25,7 +25,7 @@ export const Main = () => {
         <Alias width={300} height={300} />
         <View style={styles.btnWrapper}>
           <AppButton text="Start" onPress={handleStart} />
-          <AppButton text="Continue" onPress={handleContinue} />
+          <AppButton text="Continue" onPress={handleContinue} disabled />
           <AppButton text="Settings" onPress={handleContinue} />
         </View>
       </SafeAreaView>
