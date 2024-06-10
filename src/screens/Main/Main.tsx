@@ -17,6 +17,10 @@ export const Main = () => {
 
   const handleContinue = () => {};
 
+  const handleSettings = () => {
+    navigation.navigate('SETTINGS' as never);
+  };
+
   return (
     <ImageBackground
       source={require('../../assets/images/back.jpg')}
@@ -26,7 +30,7 @@ export const Main = () => {
         <View style={styles.btnWrapper}>
           <AppButton text="Start" onPress={handleStart} />
           <AppButton text="Continue" onPress={handleContinue} disabled />
-          <AppButton text="Settings" onPress={handleContinue} />
+          <AppButton text="Settings" onPress={handleSettings} />
         </View>
       </SafeAreaView>
     </ImageBackground>

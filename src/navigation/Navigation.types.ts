@@ -1,6 +1,7 @@
 export enum ScreenRoutes {
   MAIN = 'MAIN',
   START = 'START',
+  SETTINGS = 'SETTINGS',
 }
 
 export const screenOptions = {
@@ -9,5 +10,6 @@ export const screenOptions = {
 
 export interface RootStackParamList {
   MAIN: undefined;
-  Start: undefined;
+  START: undefined;
+  SETTINGS: undefined;
 }
