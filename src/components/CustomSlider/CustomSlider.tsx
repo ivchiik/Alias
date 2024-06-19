@@ -1,11 +1,11 @@
 import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 import Slider from '@react-native-community/slider';
 
-import {AppText} from 'components';
+import { AppText } from 'components';
 
-import {styles} from './Styles';
-import {colors} from '../../constants';
+import { styles } from './Styles';
+import { colors } from '../../constants';
 
 interface CustomSliderProps {
   valueChange: (value: number) => void;
@@ -16,7 +16,7 @@ interface CustomSliderProps {
 }
 
 export const CustomSlider = (props: CustomSliderProps) => {
-  const {valueChange, value, minValue, maxValue, sliderText} = props;
+  const { valueChange, value, minValue, maxValue, sliderText } = props;
 
   return (
     <View style={styles.sliderContainer}>

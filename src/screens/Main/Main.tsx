@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Text, ImageBackground} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {useNavigation} from '@react-navigation/native';
+import { View, ImageBackground } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
-import {AppButton, AppText} from 'components';
+import { AppButton } from 'components';
 
-import {styles} from './Styles';
+import { styles } from './Styles';
 import Alias from 'assets/images/AliasIcon.svg';
 
 export const Main = () => {
