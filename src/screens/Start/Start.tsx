@@ -32,6 +32,10 @@ export const Start = () => {
     setTimerVisible(true);
   };
 
+  const handleContinue = () => {
+    navigation.navigate('PLAY' as never);
+  };
+
   return (
     <ImageBackground
       source={require('../../assets/images/back.jpg')}
@@ -55,7 +59,11 @@ export const Start = () => {
               style={styles.addTeamBtn}
               onPress={handleTimerPress}
             />
-            <AppButton text="Continue" style={styles.addTeamBtn} />
+            <AppButton
+              text="Continue"
+              style={styles.addTeamBtn}
+              onPress={handleContinue}
+            />
           </View>
         </View>
 

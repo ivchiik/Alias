@@ -3,7 +3,7 @@ import { View, ImageBackground } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 
-import { AppButton } from 'components';
+import { AppButton, FlagComponent } from 'components';
 
 import { styles } from './Styles';
 import Alias from 'assets/images/AliasIcon.svg';
@@ -27,6 +27,7 @@ export const Main = () => {
       style={styles.img}>
       <SafeAreaView style={styles.container}>
         <Alias width={300} height={300} />
+        <FlagComponent />
         <View style={styles.btnWrapper}>
           <AppButton text="Start" onPress={handleStart} />
           <AppButton text="Continue" onPress={handleContinue} disabled />

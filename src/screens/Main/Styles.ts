@@ -14,7 +14,6 @@ export const styles = StyleSheet.create({
   },
 
   btnWrapper: {
-    marginTop: 60,
     gap: 20,
   },
 });
