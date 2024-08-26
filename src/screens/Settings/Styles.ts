@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {colors, WIDTH} from '../../constants';
+import { StyleSheet } from 'react-native';
+import { colors, WIDTH } from '../../constants';
 
 export const styles = StyleSheet.create({
   img: {

@@ -9,24 +9,26 @@ import { colors } from '../../constants';
 
 interface CustomSliderProps {
   valueChange: (value: number) => void;
-  value: number;
+  values: number;
   minValue: number;
   maxValue: number;
   sliderText: string;
 }
 
 export const CustomSlider = (props: CustomSliderProps) => {
-  const { valueChange, value, minValue, maxValue, sliderText } = props;
+  const { valueChange, values, minValue, maxValue, sliderText } = props;
 
   return (
     <View style={styles.sliderContainer}>
-      <AppText style={styles.sliderPoints}>{value}</AppText>
+      <AppText style={styles.sliderPoints}>{values}</AppText>
       <Slider
         style={styles.slider}
         minimumValue={minValue}
         maximumValue={maxValue}
         step={5}
-        onValueChange={valueChange}
+        onValueChange={value => valueChange(value)}
+        onSlidingComplete={value => valueChange(value)}
+        value={values}
         minimumTrackTintColor={colors.secondaryColor}
         maximumTrackTintColor={colors.black}
       />

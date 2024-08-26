@@ -33,7 +33,7 @@ export const ModalSlider = (props: ModalSliderProps) => {
         <View style={styles.insideContainer}>
           <CustomSlider
             valueChange={valueChange}
-            value={value}
+            values={value}
             minValue={minValue}
             maxValue={maxValue}
             sliderText={sliderText}

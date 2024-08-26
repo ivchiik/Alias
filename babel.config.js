@@ -10,8 +10,10 @@ module.exports = {
           screens: './src/screens',
           components: './src/components',
           images: './src/assets/images',
+          mmkv: './src/mmkv',
         },
       },
     ],
+    'react-native-reanimated/plugin',
   ],
 };
