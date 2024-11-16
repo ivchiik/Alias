@@ -17,6 +17,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 
+  flatList: {
+    flex: 1,
+    gap: 10,
+    marginTop: 20,
+  },
+
   smallWrapper: {
     marginBottom: 30,
   },

@@ -6,3 +6,4 @@ export { CustomModal } from './CustomModal/CustomModal';
 export { ModalSlider } from './ModalSlider/ModalSlider';
 export { FlagComponent } from './FlagComponent/FlagComponent';
 export { WordContainer } from './WordContainer/WordContainer';
+export { AddedTeam } from './AddedTeam/AddedTeam';

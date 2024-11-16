@@ -3,19 +3,15 @@ import { colors } from '../../constants';
 
 export const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  insideContainer: {
-    backgroundColor: colors.darkRed,
+    flex: 1,
     position: 'absolute',
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'space-between',
-    top: '40%',
+    backgroundColor: colors.darkRed,
     width: 300,
     height: 175,
+    top: '40%',
     padding: 12,
     borderRadius: 12,
   },
@@ -23,7 +19,7 @@ export const styles = StyleSheet.create({
   headWrapper: {
     width: '100%',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
 
   empty: {
@@ -34,6 +30,7 @@ export const styles = StyleSheet.create({
     color: colors.secondaryColor,
     fontSize: 18,
     fontWeight: '600',
+    textAlign: 'center',
   },
 
   modalFooter: {

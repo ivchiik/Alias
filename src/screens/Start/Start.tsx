@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { View, ImageBackground } from 'react-native';
+import { View, ImageBackground, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 
-import { AppButton, CustomHeader, CustomModal, ModalSlider } from 'components';
+import {
+  AddedTeam,
+  AppButton,
+  CustomHeader,
+  CustomModal,
+  ModalSlider,
+} from 'components';
 
 import { styles } from './Styles';
-import { initialGameData, storage } from '../../mmkv//Initialize';
+import { initialGameData, storage } from '../../mmkv/Initialize';
 
 export const Start = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -14,11 +20,13 @@ export const Start = () => {
   const [timerVisible, setTimerVisible] = useState(false);
   const [points, setPoints] = useState<number>(initialGameData.scoreLimit);
   const [time, setTime] = useState<number>(initialGameData.time);
+  const [teams, setTeams] = useState(initialGameData.teams);
   const navigation = useNavigation();
 
   useEffect(() => {
     const savedPoints = storage.getNumber('scoreLimit');
     const savedTime = storage.getNumber('time');
+    const savedTeams = storage.getString('teams');
 
     if (savedPoints !== undefined) {
       setPoints(savedPoints);
@@ -26,19 +34,24 @@ export const Start = () => {
     if (savedTime !== undefined) {
       setTime(savedTime);
     }
+    if (savedTeams) {
+      setTeams(JSON.parse(savedTeams));
+    }
   }, []);
 
   useEffect(() => {
     storage.set('scoreLimit', points);
     storage.set('time', time);
-  }, [points, time]);
+    storage.set('teams', JSON.stringify(teams));
+  }, [points, time, teams]);
 
   const handleModalPress = () => {
     setModalVisible(true);
   };
 
   const handleModalClose = () => {
-    setModalVisible(false);
+    console.log('gee');
+    setModalVisible(!modalVisible);
   };
 
   const handleSliderPress = () => {
@@ -65,6 +78,15 @@ export const Start = () => {
             style={styles.addTeamBtn}
             onPress={handleModalPress}
           />
+          <FlatList
+            data={teams}
+            keyExtractor={item => item.id.toString()}
+            contentContainerStyle={styles.flatList}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) => (
+              <AddedTeam name={item.name} points={item.points} />
+            )}
+          />
           <View style={styles.smallWrapper}>
             <AppButton
               text="Set points"
@@ -84,12 +106,6 @@ export const Start = () => {
           </View>
         </View>
 
-        <CustomModal
-          isVisible={modalVisible}
-          hide={() => setModalVisible(false)}
-          title="Add team"
-          close={handleModalClose}
-        />
         <ModalSlider
           isVisible={sliderVisible}
           hide={() => setSliderVisible(false)}
@@ -109,6 +125,13 @@ export const Start = () => {
           sliderText="Set timer"
         />
       </SafeAreaView>
+      <CustomModal
+        isVisible={modalVisible}
+        hide={handleModalClose}
+        title="Add team"
+        close={handleModalClose}
+        onAddTeam={newTeam => setTeams([...teams, newTeam])}
+      />
     </ImageBackground>
   );
 };
