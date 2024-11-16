@@ -12,7 +12,7 @@ import {
 } from 'components';
 
 import { styles } from './Styles';
-import { initialGameData, storage } from '../../mmkv/Initialize';
+import { initialGameData, storage, TeamProps } from '../../mmkv/Initialize';
 
 export const Start = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -20,7 +20,7 @@ export const Start = () => {
   const [timerVisible, setTimerVisible] = useState(false);
   const [points, setPoints] = useState<number>(initialGameData.scoreLimit);
   const [time, setTime] = useState<number>(initialGameData.time);
-  const [teams, setTeams] = useState(initialGameData.teams);
+  const [teams, setTeams] = useState<TeamProps[]>(initialGameData.teams);
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -50,8 +50,11 @@ export const Start = () => {
   };
 
   const handleModalClose = () => {
-    console.log('gee');
     setModalVisible(!modalVisible);
+  };
+
+  const handleTeamDelete = (id: string) => {
+    setTeams(teams.filter(team => team.id !== id));
   };
 
   const handleSliderPress = () => {
@@ -63,7 +66,7 @@ export const Start = () => {
   };
 
   const handleContinue = () => {
-    navigation.navigate('PLAY' as never);
+    navigation.navigate('CHECK_TEAMS' as never);
   };
 
   return (
@@ -84,7 +87,11 @@ export const Start = () => {
             contentContainerStyle={styles.flatList}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
-              <AddedTeam name={item.name} points={item.points} />
+              <AddedTeam
+                id={item.id}
+                name={item.name}
+                onDelete={handleTeamDelete}
+              />
             )}
           />
           <View style={styles.smallWrapper}>
@@ -130,7 +137,9 @@ export const Start = () => {
         hide={handleModalClose}
         title="Add team"
         close={handleModalClose}
-        onAddTeam={newTeam => setTeams([...teams, newTeam])}
+        onAddTeam={newTeam =>
+          setTeams([...teams, { ...newTeam, id: newTeam.id.toString() }])
+        }
       />
     </ImageBackground>
   );

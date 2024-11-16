@@ -3,6 +3,7 @@ export enum ScreenRoutes {
   START = 'START',
   SETTINGS = 'SETTINGS',
   PLAY = 'PLAY',
+  CHECK_TEAMS = 'CHECK_TEAMS',
 }
 
 export const screenOptions = {
@@ -14,4 +15,5 @@ export interface RootStackParamList {
   START: undefined;
   SETTINGS: undefined;
   PLAY: undefined;
+  CHECK_TEAMS: undefined;
 }

@@ -7,16 +7,17 @@ import { styles } from './Styles';
 import Close from '../../assets/images/Close.svg';
 
 interface AddedTeamProps {
+  id: string;
   name: string;
-  points: number;
+  onDelete: (id: string) => void;
 }
 
 export const AddedTeam = (props: AddedTeamProps) => {
-  const { name } = props;
+  const { id, name, onDelete } = props;
 
   return (
     <View style={styles.container}>
-      <Pressable>
+      <Pressable onPress={() => onDelete(id)}>
         <Close />
       </Pressable>
       <AppText style={styles.name}>{name}</AppText>

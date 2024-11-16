@@ -9,7 +9,7 @@ import {
   screenOptions,
 } from './Navigation.types';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Main, Play, Settings, Start } from 'screens';
+import { CheckTeams, Main, Play, Settings, Start } from 'screens';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 export const navigationRef = createNavigationContainerRef();
@@ -36,6 +36,11 @@ export const RootNavigation = () => {
         <Stack.Screen
           name={ScreenRoutes.PLAY}
           component={Play}
+          options={{ animation: 'fade' }}
+        />
+        <Stack.Screen
+          name={ScreenRoutes.CHECK_TEAMS}
+          component={CheckTeams}
           options={{ animation: 'fade' }}
         />
       </Stack.Navigator>
